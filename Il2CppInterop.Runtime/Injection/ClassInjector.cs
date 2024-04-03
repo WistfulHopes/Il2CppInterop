@@ -1129,6 +1129,8 @@ public static unsafe partial class ClassInjector
         var declaringType = klass;
         while ((declaringType = UnityVersionHandler.Wrap(declaringType.DeclaringType)) != default)
         {
+            fullName.Append(Marshal.PtrToStringAnsi(declaringType.Namespace));
+            fullName.Append('.');
             fullName.Append(Marshal.PtrToStringAnsi(declaringType.Name));
             fullName.Append('+');
         }
