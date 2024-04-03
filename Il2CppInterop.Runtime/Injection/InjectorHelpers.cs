@@ -64,6 +64,7 @@ namespace Il2CppInterop.Runtime.Injection
 
         private static readonly GenericMethod_GetMethod_Hook GenericMethodGetMethodHook = new();
         private static readonly MetadataCache_GetTypeInfoFromTypeDefinitionIndex_Hook GetTypeInfoFromTypeDefinitionIndexHook = new();
+        private static readonly GlobalMetadata_GetTypeInfoFromHandle GetTypeInfoFromHandleHook = new();
         private static readonly Class_GetFieldDefaultValue_Hook GetFieldDefaultValueHook = new();
         private static readonly Class_FromIl2CppType_Hook FromIl2CppTypeHook = new();
         private static readonly Class_FromName_Hook FromNameHook = new();
@@ -74,6 +75,7 @@ namespace Il2CppInterop.Runtime.Injection
             if (InjectedAssembly == null) CreateInjectedAssembly();
             GenericMethodGetMethodHook.ApplyHook();
             GetTypeInfoFromTypeDefinitionIndexHook.ApplyHook();
+            GetTypeInfoFromHandleHook.ApplyHook();
             GetFieldDefaultValueHook.ApplyHook();
             ClassInit ??= FindClassInit();
             FromIl2CppTypeHook.ApplyHook();

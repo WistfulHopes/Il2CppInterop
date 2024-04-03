@@ -51,5 +51,12 @@ internal class MemoryUtils
         public string mask;
         public int offset;
         public bool xref;
+
+        public SignatureDefinition(string pattern, string mask, bool xref) : this()
+        {
+            this.pattern = pattern;
+            this.mask = mask;
+            this.xref = xref;
+        }
     }
 }
